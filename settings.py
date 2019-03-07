@@ -9,10 +9,8 @@ from dotmap import DotMap
 config = DotMap()
 
 #your config here
-config.user = getenv("USER", "King Roland")
-config.pw = getenv("PASSWORD", "12345")
-
-
+config.druidia_user = getenv("DRUIDIA_USERNAME", "King Roland")
+config.druidia_password = getenv("DRUIDIA_PASSWORD", "12345")
 
 if __name__ == "__main__":
     with open(".env", "w") as f:

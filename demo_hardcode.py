@@ -1,4 +1,3 @@
-from settings import config
 import druidia
 
 druidia.login(
@@ -8,4 +7,3 @@ druidia.login(
 
 # breath all the perri-air your want!
 druidia.open_planet()
-
