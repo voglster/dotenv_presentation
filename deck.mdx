@@ -1,0 +1,204 @@
+export { default as theme } from "./theme";
+import { Split } from "mdx-deck/layouts";
+import { Fragment } from "react";
+import { Appear } from "mdx-deck";
+
+# dotenv
+
+removing secrets from code with only 4 characters!
+
+#### by Jim Vogel
+
+---
+
+# About Me
+
+- jim@vogelcc.com or @Jim on slack
+- professionally coding for 10+ years
+- python for 3 years
+- I love to learn & try new stuff constantly
+- problem solving enthusiast, feel free to talk to me
+
+---
+
+## We have all been there
+
+Who here has hard-coded secrets in their code base?
+
+```python
+
+druidia.login(
+  user='King Roland',
+  password='12345'
+)
+# unlimited perri-air!
+druidia.open_planet()
+
+```
+
+** do not commit a file like this! **
+
+#### ps. anyone get the reference?
+
+---
+
+# How do we get these secrets out?
+
+- extract to a variable?
+- move to a new file?
+- load from a file?
+
+environment variables to the rescue!
+
+---
+
+# Wait... whats an
+
+# Environment Variable
+
+all systems (windows, mac, and linux) have environment variables
+
+they are limited to basically strings **but system agnostic**
+
+---
+
+### Try it
+
+windows:  
+`start -> command prompt -> type 'echo %PATH%'`
+
+macos:  
+`terminal -> type 'echo $PATH'`
+
+python:
+
+```python
+import os
+print(os.environ['PATH'])
+
+```
+
+---
+
+### Problems with environment variables
+
+- difficult to set
+- only one for the entire machine (environment)
+- can be read by any program on a machine
+
+---
+
+## Lets use dotenv
+
+---
+
+dotenv allows your to override the system environment
+
+by reading from a file called `.env`
+
+---
+
+by adding these 2 lines:
+
+```python
+from dotenv import load_dotenv
+
+load_dotenv()
+```
+
+before reading your environment variables  
+you get the variables in your env file
+
+---
+
+# Demo
+
+---
+
+# Why do this?
+
+12 factor app #3 (https://12factor.net/)
+
+deploying the same code in multiple locations gets really easy
+
+no longer dangerous to commit and/or share code
+
+you no longer have an 'oops' if you share
+
+---
+
+# More complex configuration
+
+how do we handle complex nested configuration?
+
+point and env var to a file!
+
+`CONFIG_FILE=./config.json`
+
+---
+
+### How can I use this?
+
+grab dotenv yourself and copy the code from settings.py
+
+```python
+#your config here
+config.user = getenv("USER", "King Roland")
+config.pw = getenv("PASSWORD", "12345")
+
+```
+
+replace with your config, 2nd parameter is a default
+
+---
+
+### Using settings.py
+
+_python settings.py_
+
+will create a .env file in the local directory for you with all the settings you currently have defined
+
+changing those settings and rerunning will add to the  
+file for you with all the defaults you have defined
+
+---
+
+### Using settings.py2
+
+I use dotmap to give a dotted dictionary.
+
+- `config['username']` # feels clunky
+- `config.username` # much better
+
+##### _thank you khorn for the idea_
+
+---
+
+### Parting notes
+
+add .env to your .gitignore!
+there is a requirements.txt in this repo
+its to easy not to move your secrets.. go do it!
+
+---
+
+Where can you find more?
+
+source code @
+
+https://github.com/theskumar/python-dotenv
+
+---
+
+# Q & A
+
+---
+
+# Thanks for listening!
+
+- survey: http://bit.ly/hug101jim
+- source code: http://bit.ly/jvhug
+- jim@vogelcc.com or @Jim on slack
+
+I consult, teach, freelance, and geek out about python.<br/>
+Feel free to hit me up about your project/problem!
